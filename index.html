@@ -1,0 +1,636 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>INDAHAR.com | Coming Soon</title>
+  <meta
+    name="description"
+    content="INDAHAR.com is coming soon to Kalyan Nagar. Healthy, high-protein vegetarian meals and fresh juices."
+  />
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --green: #1d6b45;
+      --dark-green: #10452e;
+      --light-green: #eaf6ed;
+      --orange: #f49b35;
+      --cream: #fffaf0;
+      --dark: #17251d;
+      --white: #ffffff;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: var(--cream);
+      color: var(--dark);
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    /* ---------- HEADER ---------- */
+
+    header {
+      width: 100%;
+      padding: 22px 7%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: 10;
+    }
+
+    .logo {
+      font-size: 30px;
+      font-weight: 900;
+      color: var(--green);
+      letter-spacing: -1px;
+    }
+
+    .logo span {
+      color: var(--orange);
+    }
+
+    .location {
+      background: rgba(255, 255, 255, 0.85);
+      padding: 10px 18px;
+      border-radius: 30px;
+      font-size: 14px;
+      color: var(--dark-green);
+      box-shadow: 0 5px 20px rgba(0, 0, 0, 0.06);
+    }
+
+    /* ---------- HERO ---------- */
+
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+      padding: 120px 7% 60px;
+    }
+
+    .hero-content {
+      width: 55%;
+      max-width: 700px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .badge {
+      display: inline-block;
+      background: var(--light-green);
+      color: var(--green);
+      padding: 10px 18px;
+      border-radius: 30px;
+      font-size: 14px;
+      font-weight: bold;
+      margin-bottom: 25px;
+    }
+
+    h1 {
+      font-size: clamp(55px, 8vw, 105px);
+      line-height: 0.92;
+      letter-spacing: -5px;
+      color: var(--dark-green);
+      margin-bottom: 25px;
+    }
+
+    h1 span {
+      color: var(--orange);
+    }
+
+    .subtitle {
+      font-size: 22px;
+      line-height: 1.5;
+      color: #53645a;
+      max-width: 600px;
+      margin-bottom: 35px;
+    }
+
+    .subtitle strong {
+      color: var(--green);
+    }
+
+    /* ---------- COUNTDOWN ---------- */
+
+    .countdown {
+      display: flex;
+      gap: 12px;
+      margin: 30px 0;
+      flex-wrap: wrap;
+    }
+
+    .time-box {
+      background: white;
+      width: 90px;
+      height: 90px;
+      border-radius: 18px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 10px 30px rgba(29, 107, 69, 0.1);
+    }
+
+    .time-box strong {
+      font-size: 28px;
+      color: var(--green);
+    }
+
+    .time-box small {
+      color: #718078;
+      font-size: 11px;
+      text-transform: uppercase;
+      margin-top: 4px;
+    }
+
+    /* ---------- FORM ---------- */
+
+    .notify {
+      display: flex;
+      max-width: 500px;
+      margin-top: 25px;
+      background: white;
+      padding: 6px;
+      border-radius: 50px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    }
+
+    .notify input {
+      flex: 1;
+      border: none;
+      outline: none;
+      padding: 15px 20px;
+      font-size: 15px;
+      background: transparent;
+      min-width: 0;
+    }
+
+    .notify button {
+      border: none;
+      background: var(--green);
+      color: white;
+      padding: 14px 24px;
+      border-radius: 40px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .notify button:hover {
+      background: var(--dark-green);
+      transform: translateY(-1px);
+    }
+
+    #message {
+      margin-top: 12px;
+      color: var(--green);
+      font-size: 14px;
+      min-height: 20px;
+    }
+
+    /* ---------- FOOD VISUAL ---------- */
+
+    .food-area {
+      position: absolute;
+      right: -80px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 52vw;
+      height: 52vw;
+      max-width: 700px;
+      max-height: 700px;
+      background: var(--light-green);
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .bowl {
+      width: 390px;
+      height: 390px;
+      border-radius: 50%;
+      background:
+        radial-gradient(circle at 35% 35%, #f8d17a 0 9%, transparent 10%),
+        radial-gradient(circle at 65% 30%, #ef9a42 0 8%, transparent 9%),
+        radial-gradient(circle at 30% 65%, #74a85b 0 10%, transparent 11%),
+        radial-gradient(circle at 65% 65%, #d76a48 0 9%, transparent 10%),
+        radial-gradient(circle at 50% 50%, #f0d39a 0 15%, transparent 16%),
+        radial-gradient(circle at 78% 50%, #7cae5d 0 7%, transparent 8%),
+        radial-gradient(circle at 45% 78%, #e9a94d 0 8%, transparent 9%),
+        #f7f2dc;
+      border: 25px solid white;
+      box-shadow:
+        0 25px 50px rgba(0, 0, 0, 0.15),
+        inset 0 0 0 2px #eee;
+      position: relative;
+    }
+
+    .bowl::before {
+      content: "";
+      position: absolute;
+      width: 75px;
+      height: 75px;
+      border-radius: 50%;
+      background: #70a64f;
+      top: 45px;
+      left: 110px;
+      box-shadow:
+        115px 30px 0 #e38b42,
+        30px 140px 0 #d95f45,
+        130px 150px 0 #f1c85d,
+        -30px 170px 0 #82b15e;
+    }
+
+    .leaf {
+      position: absolute;
+      width: 100px;
+      height: 50px;
+      background: #5b944d;
+      border-radius: 100% 0 100% 0;
+      top: 70px;
+      right: 90px;
+      transform: rotate(25deg);
+    }
+
+    .leaf::after {
+      content: "";
+      position: absolute;
+      width: 80px;
+      height: 3px;
+      background: #3c7339;
+      transform: rotate(-30deg);
+      top: 25px;
+      left: 10px;
+    }
+
+    /* ---------- FLOATING ELEMENTS ---------- */
+
+    .circle {
+      position: absolute;
+      border-radius: 50%;
+      opacity: 0.8;
+    }
+
+    .circle.one {
+      width: 70px;
+      height: 70px;
+      background: #f4c75d;
+      right: 25%;
+      top: 15%;
+    }
+
+    .circle.two {
+      width: 35px;
+      height: 35px;
+      background: #e77848;
+      right: 12%;
+      bottom: 20%;
+    }
+
+    .circle.three {
+      width: 55px;
+      height: 55px;
+      background: #75a65a;
+      left: 43%;
+      bottom: 8%;
+    }
+
+    /* ---------- FOOTER ---------- */
+
+    footer {
+      position: absolute;
+      bottom: 20px;
+      left: 7%;
+      color: #718078;
+      font-size: 13px;
+      z-index: 5;
+    }
+
+    /* ---------- MOBILE ---------- */
+
+    @media (max-width: 900px) {
+
+      header {
+        padding: 20px 5%;
+      }
+
+      .logo {
+        font-size: 25px;
+      }
+
+      .location {
+        font-size: 12px;
+        padding: 8px 13px;
+      }
+
+      .hero {
+        padding: 110px 5% 80px;
+        min-height: auto;
+      }
+
+      .hero-content {
+        width: 100%;
+        max-width: 650px;
+      }
+
+      h1 {
+        font-size: clamp(60px, 18vw, 100px);
+      }
+
+      .subtitle {
+        font-size: 18px;
+      }
+
+      .food-area {
+        position: relative;
+        right: auto;
+        top: auto;
+        transform: none;
+        width: 90vw;
+        height: 90vw;
+        margin: 60px auto 20px;
+        max-width: 450px;
+        max-height: 450px;
+      }
+
+      .bowl {
+        width: 260px;
+        height: 260px;
+        border-width: 17px;
+      }
+
+      .notify {
+        max-width: 100%;
+      }
+
+      footer {
+        position: relative;
+        left: auto;
+        bottom: auto;
+        margin: 30px 5%;
+      }
+    }
+
+    @media (max-width: 500px) {
+
+      .countdown {
+        gap: 8px;
+      }
+
+      .time-box {
+        width: 70px;
+        height: 70px;
+      }
+
+      .time-box strong {
+        font-size: 22px;
+      }
+
+      .notify {
+        flex-direction: column;
+        background: transparent;
+        box-shadow: none;
+        gap: 8px;
+      }
+
+      .notify input {
+        background: white;
+        border-radius: 30px;
+        box-shadow: 0 5px 20px rgba(0, 0, 0, 0.06);
+      }
+
+      .notify button {
+        width: 100%;
+      }
+
+      .food-area {
+        width: 85vw;
+        height: 85vw;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- HEADER -->
+  <header>
+    <div class="logo">
+      INDAHAR<span>.com</span>
+    </div>
+
+    <div class="location">
+      📍 Coming Soon — Kalyan Nagar
+    </div>
+  </header>
+
+
+  <!-- HERO -->
+  <main class="hero">
+
+    <div class="hero-content">
+
+      <div class="badge">
+        🌱 HEALTHY FOOD • COMING SOON
+      </div>
+
+      <h1>
+        Eat Well.<br>
+        Feel <span>Strong.</span>
+      </h1>
+
+      <p class="subtitle">
+        <strong>INDAHAR.com</strong> is bringing delicious,
+        high-protein vegetarian meals, power bowls and
+        healthy fresh juices to <strong>Kalyan Nagar.</strong>
+      </p>
+
+
+      <!-- COUNTDOWN -->
+      <div class="countdown">
+
+        <div class="time-box">
+          <strong id="days">00</strong>
+          <small>Days</small>
+        </div>
+
+        <div class="time-box">
+          <strong id="hours">00</strong>
+          <small>Hours</small>
+        </div>
+
+        <div class="time-box">
+          <strong id="minutes">00</strong>
+          <small>Minutes</small>
+        </div>
+
+        <div class="time-box">
+          <strong id="seconds">00</strong>
+          <small>Seconds</small>
+        </div>
+
+      </div>
+
+
+      <!-- EMAIL -->
+      <form class="notify" id="notifyForm">
+
+        <input
+          type="email"
+          id="email"
+          placeholder="Enter your email"
+          required
+        />
+
+        <button type="submit">
+          Notify Me
+        </button>
+
+      </form>
+
+      <div id="message"></div>
+
+    </div>
+
+
+    <!-- FOOD VISUAL -->
+    <div class="food-area">
+
+      <div class="bowl">
+        <div class="leaf"></div>
+      </div>
+
+    </div>
+
+
+    <!-- DECORATION -->
+    <div class="circle one"></div>
+    <div class="circle two"></div>
+    <div class="circle three"></div>
+
+  </main>
+
+
+  
+
+
+  <script>
+
+    /*
+      ---------------------------------------
+      COMING SOON COUNTDOWN
+      ---------------------------------------
+
+      Change this date to your expected launch date.
+
+      Example:
+      September 30, 2026 10:00:00
+    */
+
+    const launchDate = new Date("October 30, 2026 10:00:00").getTime();
+
+
+    function updateCountdown() {
+
+      const now = new Date().getTime();
+
+      const distance = launchDate - now;
+
+
+      if (distance <= 0) {
+
+        document.getElementById("days").innerText = "00";
+        document.getElementById("hours").innerText = "00";
+        document.getElementById("minutes").innerText = "00";
+        document.getElementById("seconds").innerText = "00";
+
+        return;
+      }
+
+
+      const days = Math.floor(
+        distance / (1000 * 60 * 60 * 24)
+      );
+
+      const hours = Math.floor(
+        (distance % (1000 * 60 * 60 * 24))
+        / (1000 * 60 * 60)
+      );
+
+      const minutes = Math.floor(
+        (distance % (1000 * 60 * 60))
+        / (1000 * 60)
+      );
+
+      const seconds = Math.floor(
+        (distance % (1000 * 60))
+        / 1000
+      );
+
+
+      document.getElementById("days").innerText =
+        String(days).padStart(2, "0");
+
+      document.getElementById("hours").innerText =
+        String(hours).padStart(2, "0");
+
+      document.getElementById("minutes").innerText =
+        String(minutes).padStart(2, "0");
+
+      document.getElementById("seconds").innerText =
+        String(seconds).padStart(2, "0");
+    }
+
+
+    updateCountdown();
+
+    setInterval(updateCountdown, 1000);
+
+
+    /*
+      ---------------------------------------
+      NOTIFY FORM
+      ---------------------------------------
+
+      This is a static demo.
+
+      Later you can connect this to:
+      Node.js / MongoDB / email service.
+    */
+
+    document
+      .getElementById("notifyForm")
+      .addEventListener("submit", function (event) {
+
+        event.preventDefault();
+
+        const email =
+          document.getElementById("email").value;
+
+        if (email) {
+
+          document.getElementById("message").innerText =
+            "✓ Thank you! We'll let you know when INDAHAR.com launches.";
+
+          document.getElementById("email").value = "";
+        }
+
+      });
+
+  </script>
+
+</body>
+</html>
